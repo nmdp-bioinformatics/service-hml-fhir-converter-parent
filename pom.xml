@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    service-hmLFhirConverter REST API for web-hmlFhirAngularClient application
+    Copyright (c) 2012-2015 National Marrow Donor Program (NMDP)
+
+    This library is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as published
+    by the Free Software Foundation; either version 3 of the License, or (at
+    your option) any later version.
+
+    This library is distributed in the hope that it will be useful, but WITHOUT
+    ANY WARRANTY; with out even the implied warranty of MERCHANTABILITY or
+    FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public
+    License for more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with this library;  if not, write to the Free Software Foundation,
+    Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307  USA.
+
+        > http://www.fsf.org/licensing/licenses/lgpl.html
+        > http://www.opensource.org/licenses/lgpl-license.php
+
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.nmdp</groupId>
+    <artifactId>service-hml-fhir-converter-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.0.RELEASE</version>
+	</parent>
+
+	<modules>
+		<module>service-hml-fhir-converter-api</module>
+		<module>kafka-producer</module>
+		<module>hml-fhir-mongo</module>
+		<module>hml-fhir</module>
+		<module>service-hml-fhir-converter-models</module>
+		<module>service-kafka-producer-model</module>
+	</modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.nmdp</groupId>
+			<artifactId>service-hml-fhir-converter-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.nmdp</groupId>
+			<artifactId>kafka-producer</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.nmdp</groupId>
+			<artifactId>hml-fhir-mongo</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.nmdp</groupId>
+			<artifactId>hml-fhir</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.nmdp</groupId>
+			<artifactId>service-hml-fhir-converter-models</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.nmdp</groupId>
+			<artifactId>service-kafka-producer-model</artifactId>
+		</dependency>
+	</dependencies>
+</project>
