@@ -3,8 +3,6 @@ import subprocess
 import argparse
 import os
 
-import pdb
-
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-u')
@@ -24,12 +22,12 @@ doc = xml.dom.minidom.parse("pom.xml")
 modules = doc.getElementsByTagName("module")
 subprocess.call("sh install.sh", shell=True)
 
-pdb.set_trace()
-
 for module in modules:
     module_name = module.firstChild.nodeValue
-    subprocess.call("sh install-module.sh -u %s -p %s -b %s -r %s -m %s" % git_username % \
-        git_password % git_branch % module_name % os.path.join(os.getswd(), 'model_definitions'), shell=True)
+    model_paths = os.path.join(os.getcwd(), 'model_definitions')
+    arguments = "-u %s -p %s -b %s -r %s -m %s" % (git_username, git_password, git_branch, module_name, model_paths)
+    shell_command = "sh install-module.sh %s" % arguments
+    subprocess.call(shell_command, shell=True)
 
 os.rmdir(os.path.join(os.getcwd(), 'model_definitions'))
 os.remove(os.path.join(os.getcwd(), 'Download.py'))
