@@ -4,31 +4,19 @@ SRC_PATH=$(pwd)
 
 while getopts ":b:r:u:p:m:" opt; do
     case $opt in
-        b) branch="$OPTARG"
-        ;;
         r) repository="$OPTARG"
         ;;
-        u) username="$OPTARG"
-        ;;
-        p) password="$OPTARG"
-        ;;
         m) model_path="$OPTARG"
+        ;;
+        b) branch="$OPTARG"
+        ;;
+        p) packages="$OPTARG"
         ;;
     esac
 done
 
 if [ -z "$branch" ]; then
     branch="master"
-fi
-
-if [ -z "$username" ]; then
-    echo "Github username?"
-    read username
-fi
-
-if [ -z "$password" ]; then
-    echo "Github password?"
-    read password
 fi
 
 TARGET_DIR=$SRC_PATH/target
@@ -49,6 +37,6 @@ rm -rf $SRC_PATH/$repository-$branch.zip
 cd $MODULE_SRC/$repository
 cp $SRC_PATH/Download.py $MODULE_SRC/$repository/Download.py
 
-sh install.sh -u $username -p $password -b $branch -m $model_path -y $SRC_PATH/target/modules/src/$repository/Download.py
+sh install.sh -m $model_path -y $SRC_PATH/target/modules/src/$repository/Download.py -p $packages
 
 rm -f $MODULE_SRC/$repository/Download.py

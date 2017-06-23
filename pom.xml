@@ -39,12 +39,12 @@
 	</parent>
 
 	<modules>
-		<module>service-hml-fhir-converter-api</module>
-		<module>kafka-producer</module>
-		<module>hml-fhir-mongo</module>
-		<module>hml-fhir</module>
 		<module>service-hml-fhir-converter-models</module>
 		<module>service-kafka-producer-model</module>
+		<module>hml-fhir-mongo</module>
+		<module>hml-fhir</module>
+		<module>kafka-producer</module>
+		<module>service-hml-fhir-converter-api</module>
 	</modules>
 
 	<dependencies>
