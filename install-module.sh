@@ -2,15 +2,15 @@
 
 SRC_PATH=$(pwd)
 
-while getopts ":b:r:u:p:m:" opt; do
+while getopts ":r:m:p:b:" opt; do
     case $opt in
         r) repository="$OPTARG"
         ;;
         m) model_path="$OPTARG"
         ;;
-        b) branch="$OPTARG"
-        ;;
         p) packages="$OPTARG"
+        ;;
+        b) branch="$OPTARG"
         ;;
     esac
 done
@@ -31,7 +31,7 @@ cd $MODULE_ARCHIVE
 curl -LJO https://github.com/nmdp-bioinformatics/$repository/archive/$branch.zip
 unzip $repository-$branch.zip -d $MODULE_SRC/
 
-cp -a $MODULE_SRC/$repository-$branch/ $MODULE_SRC/$repository/
+cp -a $MODULE_SRC/$repository-$branch/ $SRC_PATH/$repository/
 rm -rf $MODULE_SRC/$repository-$branch
 rm -rf $SRC_PATH/$repository-$branch.zip
 cd $MODULE_SRC/$repository
