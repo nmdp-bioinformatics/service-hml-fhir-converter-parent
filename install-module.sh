@@ -34,9 +34,9 @@ unzip $repository-$branch.zip -d $MODULE_SRC/
 cp -a $MODULE_SRC/$repository-$branch/ $SRC_PATH/$repository/
 rm -rf $MODULE_SRC/$repository-$branch
 rm -rf $SRC_PATH/$repository-$branch.zip
-cd $MODULE_SRC/$repository
-cp $SRC_PATH/Download.py $MODULE_SRC/$repository/Download.py
+cd $SRC_PATH/$repository
+cp $SRC_PATH/Download.py $SRC_PATH/$repository/Download.py
 
-sh install.sh -m $model_path -y $SRC_PATH/target/modules/src/$repository/Download.py -p $packages
+sh install.sh -m $model_path -y $SRC_PATH/$repository/Download.py -p $packages
 
 rm -f $MODULE_SRC/$repository/Download.py

@@ -24,3 +24,9 @@ hs_err_pid*
 .idea/
 
 target/
+hml-fhir/
+hml-fhir-mongo/
+kafka-producer/
+service-hml-fhir-converter-api/
+service-hml-fhir-converter-models/
+service-kafka-producer-model/
