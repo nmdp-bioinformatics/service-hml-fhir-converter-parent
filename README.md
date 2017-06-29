@@ -11,9 +11,15 @@ To build, install, and run this application, you will need to have the following
 - Maven 3 or greater
 - Python 2.7
 
-## Installation
+### Installation
 Installation is automated, to install default package, simply issue the following command:
 
-'python Setup.py'
+'python Setup.py [options]'
 
 This will initiate downloading source code from github on the MASTER branch. Packages are built and installed in sequential order, this is maintained by build automation.
+
+### Options
+
+- '-b': Specify the branch to build the project agains (default is master).
+- '-p': Specify the packages to create swagger-spec.yaml files for. These build swagger API and Models (default is:'fhir,hml'). Values must be a comma separated list of packages to build.
+- '-r': Optional run command, value = 'run', this will run the application and startup endpoints / spring server after successful build.
