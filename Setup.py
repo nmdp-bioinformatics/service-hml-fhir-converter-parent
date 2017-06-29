@@ -31,9 +31,11 @@ for module in modules:
 src_dir = os.getcwd() + '/'
 download_script_path = os.path.join(src_dir, 'Download.py')
 os.remove(download_script_path)
+target_dir = os.path.join(src_dir, 'service-hml-fhir-converter-api/target/service-hml-fhir-converter-api-1.1.0-SNAPSHOT.jar')
 
 subprocess.call("sh install.sh", shell=True)
 
-# if args.r and not args.r.isspace():
-#     run_args = "-e %s" % target_dir
-#     shell_command = "sh run.sh %s" % run_args
+if args.r and not args.r.isspace():
+    run_args = "-e %s" % target_dir
+    shell_command = "sh run.sh %s" % run_args
+    subprocess.call(shell_command, shell=True)
